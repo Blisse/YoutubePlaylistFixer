@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+
+    "name": "Youtube Playlist Fixer",
+    "description": "Save the names of Youtube videos that have been deleted or made private.",
+    "version": "1.0",
+
+    "permissions": [
+        "https://www.youtube.com/playlist?list=*",
+        "storage"
+    ],
+    "app": {
+        "background": {
+            "scripts": ["fix.js", "jquery-2.0.3.min.js"]
+        }
+    }
+}
+
