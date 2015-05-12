@@ -1,39 +1,20 @@
-walk(document.body);
+find(document);
 
-function walk(node) 
+function find(doc)
 {
-	// I stole this function from here:
-	// http://is.gd/mwZp7E
-	
-	var child, next;
+	var video_title_eles = doc.getElementsByClassName('pl-video-title'); 
+	for (var i = 0; i < video_title_eles.length; ++i) {
+		var video_title = video_title_eles[i];
+		console.log(video_title.innerText);
+		
+		var video_title_link_eles = video_title.getElementsByClassName('pl-video-title-link');
+		if (video_title_link_eles.length > 0)
+		{
+			var video_title_link = video_title_link_eles[0];
 
-	switch ( node.nodeType )  
-	{
-		case 1:  // Element
-		case 9:  // Document
-		case 11: // Document fragment
-			child = node.firstChild;
-			while ( child ) 
-			{
-				next = child.nextSibling;
-				walk(child);
-				child = next;
-			}
-			break;
-
-		case 3: // Text node
-			handleText(node);
-			break;
+			var raw_link = video_title_link.getAttribute('href');
+			console.log(raw_link);
+		}
 	}
 }
-
-function handleText(textNode) 
-{
-	var v = textNode.nodeValue;
-
-	v = v.replace("Music", "Hi");
-	
-	textNode.nodeValue = v;
-}
-
 
