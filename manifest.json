@@ -12,11 +12,22 @@
         "tabs"
     ],
 
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+
     "content_scripts": 
     [
         {
-            "matches": ["https://*.youtube.com/playlist?*"],
-            "js": ["content_script.js"],
+            "matches": [
+                "https://*.youtube.com/playlist?*"
+            ],
+            "js": [
+                "content.js"
+            ],
             "run_at": "document_end"
         }
     ]

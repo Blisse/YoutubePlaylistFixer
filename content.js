@@ -1,8 +1,8 @@
 
 // find all the 
-saveAllVideos(document);
+save_videos(document);
 
-function saveAllVideos(doc)
+function save_videos(doc)
 {
 	videos = [];
 
@@ -65,6 +65,11 @@ function saveAllVideos(doc)
 		videos.push(video_object);
 	}
 
-	console.log(JSON.stringify(videos));
+	chrome.runtime.sendMessage({
+		"action": "save-data",
+		"data": videos
+	}, function(response) {
+		console.log("save data completed");
+	})
 }
 
